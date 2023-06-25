@@ -1,0 +1,24 @@
+CREATE TABLE parking_lots (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  spaces INT NOT NULL
+);
+
+CREATE TABLE parked_vehicles (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  license_plate VARCHAR(255) UNIQUE,
+  vehicle_type VARCHAR(255),
+  checkin_time DATETIME,
+  checkout_time DATETIME,
+  parking_lot_id INT NOT NULL,
+  FOREIGN KEY (parking_lot_id) REFERENCES parking_lots(id)
+);
+
+
+--> To add parking lot -- "CREATE parking 20"
+20 is size
+--> To delete parking lot -- "CREATE parking 1"
+1 is id
+-->to allot parking -- "park car 1 KA01A1234 car"
+1 - id of parkinglot,KA01A1234-  plate number, car - type of vehicle
+-->remove from parking --- "leave car KA01A1234"
+-->To list cars --"list car"
